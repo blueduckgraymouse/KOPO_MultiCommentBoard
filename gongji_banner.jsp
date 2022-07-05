@@ -13,6 +13,6 @@
 
 
 <div class="menus">
-      <b class="menu"><a href="gongji_list.jsp">공지사항</a></b></span>
+      <b class="menu"><a href="gongji_list.jsp">댓글 게시판</a></b></span> |
       <b class="menu"><a href="gongji_makedata.jsp">초기화</a></b></span>
 </div>

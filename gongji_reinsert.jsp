@@ -32,7 +32,7 @@
     String query1 = "select g.* from gongji2 as g, (select recnt from gongji2 where id=?) as r where rootid=? and r.recnt <=g.recnt order by g.recnt;";
     PreparedStatement pstmt = conn.prepareStatement(query1);
     pstmt.setInt(1, Integer.parseInt(id));
-    pstmt.setInt(2, Integer.parseInt(rootid));
+    pstmt.setInt(2, Integer.parseInt(rootid)); 
     ResultSet rset = pstmt.executeQuery();
 
 

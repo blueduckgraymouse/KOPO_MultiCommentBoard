@@ -14,28 +14,12 @@
 
     Class.forName("com.mysql.jdbc.Driver");
     Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/kopoctc", "root", "abcd1234");	
+
     
-    String query1 = "drop table gongji;";
-    PreparedStatement pstmt = conn.prepareStatement(query1);
-    pstmt.executeUpdate();
-
-
-    String query2 = "CREATE TABLE gongji(id int NOT NULL PRIMARY KEY AUTO_INCREMENT, title varchar(70), date date, content text) DEFAULT CHARSET UTF8;";
-    pstmt = conn.prepareStatement(query2);
+    String query = "CALL `setGongji2`;";
+    PreparedStatement pstmt = conn.prepareStatement(query);
     pstmt.executeUpdate();
     
-
-    String query3 = "insert into gongji(title, date, content) values(?, ?, ?);";
-    pstmt = conn.prepareStatement(query3);
-
-    for (int i = 1 ; i <= 119 ; i++) {
-      pstmt.setString(1, "제목" + i);
-      pstmt.setString(2, sdf.format(nowDate));
-      pstmt.setString(3, "내용내용" + i);
-
-      pstmt.executeUpdate();
-    }
-
     pstmt.close();
     conn.close();
   %>

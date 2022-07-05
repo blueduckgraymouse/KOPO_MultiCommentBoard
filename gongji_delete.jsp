@@ -34,14 +34,14 @@
 
     // 하위 댓글들 삭제
     int count = 0;
-    while (rset.next()) {                       // 아래로 순차적으로 접근, 삭제하고자하는 글보다 relevel이 낮으면 해당 글의 하위 댓글이라고 판단. 삭제
+    while (rset.next()) {                      // 아래로 순차적으로 접근, 삭제하고자하는 글보다 relevel이 낮으면 해당 글의 하위 댓글이라고 판단. 삭제
       if (rset.getInt("relevel") > relevel) {
         String query2 = "delete from gongji2 where id=?";
         pstmt = conn.prepareStatement(query2);
         pstmt.setInt(1, rset.getInt("id"));
         pstmt.executeUpdate();
         count++;
-      } else {                                  // relevel이 같거나 크면 해당 댓글과 무관한 글이므로 break
+      } else {                                  // relevel이 같거나 작으면 해당 댓글과 무관한 글이므로 break
         break;
       }
     }

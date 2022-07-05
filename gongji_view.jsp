@@ -46,6 +46,12 @@
     div.div-button {
       text-align: right;
     }
+    textarea {
+      width: 98%;
+      height: 10em;
+      border: none;
+      resize: none;
+    }
   </style>
   <%
     int id = Integer.parseInt(request.getParameter("id"));
@@ -98,7 +104,8 @@
       </tr>
       <tr>
         <td colspan="2" class="title"><b>내용</b></td>
-        <td colspan="3" id="content"><%= rset.getString("content")%></td>
+        <td colspan="3" id="content"><textarea><%= rset.getString("content")%></textarea>
+        </td>
       </tr>
       <tr>
         <td colspan="2" class="title"><b>원글</b></td>
